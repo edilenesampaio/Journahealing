@@ -11,14 +11,20 @@ class User(db.Model):
 
     __tablename__ = "users"
 
-    user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    user_id = db.Column(db.Integer, 
+              autoincrement=True, 
+              primary_key=True)
     user_name = db.Column(db.String)
-    email = db.Column(db.String, unique=True)
+    email = db.Column(db.String, 
+                      unique=True)
     password = db.Column(db.String)
 
     
     journals = db.relationship("Journal", back_populates="user")
-    
+    travel_journals = db.relationship("Travel_Journal", back_populates="user")
+    photos = db.relationship("Photo", back_populates="user")
+
+
     def __repr__(self):
         """Show info about the user."""
         
@@ -30,33 +36,40 @@ class Journal(db.Model):
 
     __tablename__ = "journals"
 
-    journal_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    journal_id = db.Column(db.Integer, 
+                 autoincrement=True, 
+                 primary_key=True)
     content = db.Column(db.Text, default="Content")
     date_time = db.Column(db.DateTime)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
+    creator = db.Column(db.Integer, 
+              db.ForeignKey("users.user_id"))
 
     
     user = db.relationship("User", back_populates="journals")
 
     def __repr__(self):
-        return f"<Journal journal_id={self.journal_id} content={self.content}>"
+        return f"<Journal journal_id={self.journal_id} content={self.content} creator={self.creator}>"
     
 class Travel_Journal(db.Model):
     """A travel journal."""
 
     __tablename__ = "travel_journals"
 
-    travel_journal_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    travel_journal_id = db.Column(db.Integer, 
+                        autoincrement=True, 
+                        primary_key=True)
     content = db.Column(db.Text, default="Content")
     date_time = db.Column(db.DateTime) 
-    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
+    creator = db.Column(db.Integer, 
+                        db.ForeignKey("users.user_id"))
     address = db.Column(db.String)
 
     
     user = db.relationship("User", back_populates="travel_journals")
+    photos = db.relationship("Photo", back_populates="travel_journal")
 
     def __repr__(self):
-        return f"<Travel_journal travel_journal_id={self.travel_journal_id} content={self.content}>"
+        return f"<Travel_journal travel_journal_id={self.travel_journal_id} content={self.content} creator={self.creator}>"
 
 
 class Photo(db.Model):
@@ -64,13 +77,18 @@ class Photo(db.Model):
 
     __tablename__ = "photos"
 
-    photo_id = db.Column(db.Integer, autoincrement=True, primary_key=True) 
+    photo_id = db.Column(db.Integer, 
+                autoincrement=True, 
+                primary_key=True) 
     date_time = db.Column(db.DateTime)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
+    creator = db.Column(db.Integer, 
+              db.ForeignKey("users.user_id"))
+    travel_journals_id = db.Column(db.Integer,
+                        db.ForeignKey("travel_journals.travel_journal_id"))
     image = db.Column(db.String)
 
-    photo = db.relationship("Photos", back_populates="travel_journals")
-    user = db.relationship("User", back_populates="travel_journals")
+    travel_journal = db.relationship("Travel_Journal", back_populates="photos")
+    user = db.relationship("User", back_populates="photos")
 
     def __repr__(self):
         return f"<Photos photos_id={self.photos_id} image={self.image}>"

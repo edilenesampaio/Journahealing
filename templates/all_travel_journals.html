@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}All Travel Journals{% endblock %}
+
+{% block body %}
+    <h1>All Travel Journals</h1>
+
+    <ul> 
+    {% for travel_journal in journals %}
+        <li> 
+            <a href="/journals/{{travel_journal.travel_journal_id}}">
+                {{travel_journal.content}}
+            </a>
+        </li>
+        </form>
+    {% endfor %}
+    </ul>
+{% endblock %}
