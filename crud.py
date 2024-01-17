@@ -32,22 +32,30 @@ def get_user_by_email(email):
     return User.query.filter(User.email == email).first()
 
 
-# def create_journal(content, creator, date_time):
-#     """Create and return a new journal"""
+def create_journal(content, creator, date_time):
+    """Create and return a new journal"""
 
-#     journal = Journal(
-#         content=content,
-#         creator=creator,
-#         date_time=date_time,
-#     )
+    journal = Journal(
+        content=content,
+        creator=creator,
+        date_time=date_time,
+    )
     
-#     return journal
+    return journal
 
-# def get_journal(creator, user):
-    # """Create all user journals."""
+def get_journal(user):
+
+    return Journal.query.filter(Journal.user == user).first()
+
+def get_journals():
+ 
+    return Journal.query.all()
 
 
-# def get_journal_by_id():
+def get_journal_by_id(journal_id):
+    
+
+    return Journal.query.get(journal_id)
 
 
 # def create_travel_journal(content, data_time, address):
@@ -65,9 +73,9 @@ def get_user_by_email(email):
 
 
 # def add_photo(date_time, image):
-    #   """Add photos to a travel journal."""
-#     
-    # photo = Photo( 
+#       """Add photos to a travel journal."""
+    
+#     photo = Photo( 
 #         date_time=date_time,
 #         image=image,
 #     )

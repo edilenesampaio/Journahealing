@@ -68,7 +68,7 @@ def show_user(user_id):
 @app.route("/login", methods=["POST"])
 def user_login():
 
-    email = email.request.form['email']
+    email = request.form['email']
     password = request.form['password']
 
     user = crud.get_user_by_email(email)
@@ -88,30 +88,90 @@ def user_login():
 
 
 
+
 # @app.route("/profile")
 # def show_profile():
-#     """Show profile page."""
+# """Show user profile."""
+
+
 
 #     if 'current_user' not in session:
-#         flash("Please log in")
+#         flash("Please, log in")
 #         return redirect("/")
     
 #     else:
 #         user = crud.get_user_by_email(session["current_user"])
+        
+#         # Journals = Journals.query.filter_by(creator=user.user_id).all()
 
-#         journals = Journal.query.filter_by(creator=user.user_id).all()
+#         if journal is None:
+#             journal = []
+    
+#         #for user_journals in user_journals:
 
-#         if journals in None:
-#             journals = []
+#         return render_template("profile.html", user=user, journal=journal)
 
-#         for journal in journals:
+@app.route("/profile")
+def show_profile():
+    """Show profile page."""
 
-#     return render_template("profile.html", user=user, journals=journals)
+    if 'current_user' not in session:
+        flash("Please log in")
+        return redirect("/")
+    
+    else:
+        user = crud.get_user_by_email(session["current_user"])
+
+        journals = Journal.query.filter_by(creator=user.user_id).all()
+
+        # if journals in None:
+        #     journals = []
+
+        # for journal in journals:
+
+        return render_template("profile.html", user=user, journals=journals)
 
 
-# @app.route("/travel_journal, method=['POST]")
 
 
+
+@app.route("/journal", methods=['POST'])
+def show_journal():
+    """Show user journals."""
+
+    journal = request.json.get('new_journal')
+    user = crud.get_user_by_email(session["current_user"])
+    user.journal = int(journal)
+    db.session.commit()
+    print(user.journal)
+    return jsonify({'journal': journal})    
+
+
+
+# @app.route("travel_journal", methods=['POST'])
+# def all_travel_journals():
+#     """"View all user travel journals.”””
+
+
+#     travel_journal = crud.get_travel_journals()
+
+#     return render_template("all_travel_journals.html", travel_journal=travel_journal)
+
+
+# @app.route("/save_travel_journal", methods=['POST'])
+# def save_travel_journal():
+#     """Save user travel journals to profile"""
+
+#     creator = crud.get_user_by_email(session["current_user"]).user_id
+
+#     save_content = request.json.get('save_content')
+#     save_address = request.json.get('save_address')
+#     travel_journal_to_save = request.json.get('travel_journal_to_save')
+#     saved_travel_journal = crud.create_travel_journal(creator, content, address)
+#     original_travel_journal = crud.get_user_travel_journal_by_id(travel_journal_to_save)
+#     db.session.add(saved_travel_journal)
+#     db.session.commit()
+#     print(saved_travel_journal)
 
 
 # @app.route("/photo", methods=['POST'])
