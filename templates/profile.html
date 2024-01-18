@@ -3,41 +3,34 @@
 
 {% block body %}
 
-</form>
-</div>
-<h1>Hello, {{user.user_name}}!</h1>
-</h2>Journal</h2>
-   <form action="/new_journal" method="POST">
+
+<div>
+  <h1>Hello, {{user.user_name}}!</h1>
+  <h2>Journal</h2>
+  <form action="/new_journal" method="POST">
     <input type="text" name="new_journal">
     <button class="btn btn-outline-secondary" type="submit"> Create </button>
-    </form>
-  </div>
-  <h2>My Journals</h2>
-   {% if journals %}
-   <ul>
+  </form>
+</div>
+<h2>My Journals</h2>
+{% if journals %}
+  <ul>
     {% for journals in journals %}
-        <li>
-            <a> href=“/journal/{{journal.journal_id}}"</a>
-        </li>       
+      <li>
+        <a> href=“/journal/{{journal.journal_id}}"</a>
+      </li>       
     {% endfor %}
-   </ul>
-   {% endif %}
-  </div>
-   <br>
-   <h2>Create New Journal</h2>
-   <form action="/new_journal" method="POST">
+  </ul>
+{% endif %}
+<div>
+  <br>
+  <h2>Create New Travel Journal</h2>
+  <form action="/new_travel_journal" method="POST">
     <input type="text" name="new_travel_journal" placehold="Travel_Journal Content">
     <button class="btn btn-outline-secondary" type="submit"> Create </button>
-    </form>
-  </div>
+  </form>
+</div>
   
-
-
-<script src="/static/js/save_journals.js</script>
-
-
-
-
-
-
+<script src="/static/js/save_journals.js"></script>
+s
 {% endblock %}

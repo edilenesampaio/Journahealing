@@ -146,6 +146,16 @@ def show_journal():
     print(user.journal)
     return jsonify({'journal': journal})    
 
+@app.route("/new_journal", methods=['POST'])
+def create_new_journal():
+    """Create a new journal."""
+
+#    get information from get form
+#   create crud function , create_new_journal
+    # maybe flash a message "new journal"
+    #  make page refresh, redirect to profile
+
+    request.form.get
 
 
 # @app.route("travel_journal", methods=['POST'])
