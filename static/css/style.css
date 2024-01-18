@@ -1,0 +1,23 @@
+body {
+ background-color:palevioletred; 
+}
+
+h1,
+h2,
+h3{
+ font-family:'Times New Roman', Times, serif;
+ color:grey
+}
+
+.custom-margin{
+    margin-top:20px;
+}
+
+.custom-margin-carousel{
+    margin-top:50px;
+}
+
+.carousel-image{
+ max-width:80%;
+ height:auto;
+}

@@ -10,7 +10,7 @@ CLOUDINARY_KEY = os.environ['CLOUDINARY_KEY']
 CLOUDINARY_SECRET = os.environ['CLOUDINARY_SECRET']
 CLOUD_NAME = "dpgsshgwg"
 
-from model import connect_to_db, db
+from model import connect_to_db, db, User, Journal, Travel_Journal, Photo
 import crud
 from jinja2 import StrictUndefined
 
