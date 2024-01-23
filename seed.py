@@ -31,7 +31,21 @@ for n in range(10):
 model.db.session.add_all(users)
 model.db.session.commit()
 
-# journal = []
+
+
+journal = []
+
+for user in users:
+
+    journal = crud.create_journal(user.user_id, content, date_time)
+    journal.append(new_journal)
+
+model.db.session.add_all(journal)
+model.db.session.commit()
+
+
+
+
 
 # for journal in journals:
 #     new_journal = choice([])
