@@ -46,10 +46,20 @@ model.db.session.commit()
 
 
 
+travel_journal = []
+
+for user in users:
+    
+    travel_journal = crud.create_travel_journal(user.user_id, content, date_time, address)
+    travel_journal.append(new_travel_journal)
+
+model.db.session.add_all(travel_journal)
+model.db.session.commit()
+
 
 # for journal in journals:
 #     new_journal = choice([])
 
 # img_url = result['secure_url']
 
-model.db.session.commit()
+# model.db.session.commit()

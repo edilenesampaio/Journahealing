@@ -82,9 +82,9 @@ def get_travel_journals():
     return Travel_Journal.query.all()
 
 
-def get_journal_by_id(journal_id):
+def get_travel_journal_by_id(journal_id):
     
-    return Journal.query.get(journal_id)
+    return Travel_Journal.query.get(journal_id)
 
 
 # def add_photo(date_time, image):

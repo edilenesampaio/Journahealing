@@ -98,27 +98,7 @@ def user_login():
 #     return redirect("/")
 
 
-# @app.route("/profile")
-# def show_profile():
-# """Show user profile."""
 
-
-
-#     if 'current_user' not in session:
-#         flash("Please, log in")
-#         return redirect("/")
-    
-#     else:
-#         user = crud.get_user_by_email(session["current_user"])
-        
-#         # Journals = Journals.query.filter_by(creator=user.user_id).all()
-
-#         if journal is None:
-#             journal = []
-    
-#         #for user_journals in user_journals:
-
-#         return render_template("profile.html", user=user, journal=journal)
 
 @app.route("/profile")
 def show_profile():
@@ -132,26 +112,20 @@ def show_profile():
         user = crud.get_user_by_email(session["current_user"])
 
         journals = Journal.query.filter_by(creator=user.user_id).all()
+        travel_journals = Travel_Journal.query.filter_by(creator=user.user_id).all()
+       
 
         if journals is None:
             journals = []
 
-        # for journal in journals:
+        if travel_journals is None:
+            travel_journals = []
 
-    return render_template("profile.html", user=user, journals=journals)
+        # all_journals = journals + travel_journals
+        # print(all_journals)
+        
 
-
-# @app.route("/journal", methods=['POST'])
-# def show_journal():
-#     """Show user journals."""
-
-#     journal = request.json.get('new_journal')
-#     user = crud.get_user_by_email(session["current_user"])
-#     db.session.commit()
-#     print(user.journal)
-#     return jsonify({'journal': journal})    
-
-
+    return render_template("profile.html", user=user, all_journals=all_journals)
 
 
 
@@ -194,6 +168,7 @@ def create_new_travel_journal():
 
 
 
+
 # @app.route("/travel_journal", methods=['POST'])
 # def show_travel_journals():
 #     """View all user travel journals."""
@@ -204,22 +179,6 @@ def create_new_travel_journal():
 #     return render_template("all_travel_journals.html", travel_journal=travel_journal)
 
 
-    
-# @app.route("/save-travel_journal", methods=['POST'])
-# def save_travel_journal():
-
-#     creator = crud.get_user_by_email(session["current_user"]).user_id
-
-#     save_content = request.json.get('save_content')
-#     save_address = request.json.get('save_address')
-#     travel_journal_to_save = request.json.get('travel_journal_to_save')
-#     saved_travel_journal = crud.create_travel_journal(creator, content, address)
-#     original_travel_journal = crud.get_user_travel_journal_by_id(travel_journal_to_save)
-    
-#     db.session.add(saved_travel_journal)
-#     db.session.commit()
-    
-#     print(saved_travel_journal)
 
 
 # @app.route("/photo", methods=['POST'])
@@ -233,17 +192,6 @@ def create_new_travel_journal():
 #                                         cloud_name=CLOUD_NAME)
                                  
 #     img_url = result['secure_url']
-
-
-
-@app.route("/logout", methods=['POST'])
-def user_logout():
-    """Log user out of the session."""
-    
-    if session.get('current_user'):
-        del session['current_user']
-    flash('Logged out!')
-    return redirect("/")
 
 
 
