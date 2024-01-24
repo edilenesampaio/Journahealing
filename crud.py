@@ -87,6 +87,11 @@ def get_travel_journal_by_id(journal_id):
     return Travel_Journal.query.get(journal_id)
 
 
+def create_image(travel_journal_id, image_link):
+    image = Images(travel_journal_id=travel_journal_id, image_link=image_link)
+    
+    return image 
+
 # def add_photo(date_time, image):
 #       """Add photos to a travel journal."""
     

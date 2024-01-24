@@ -125,7 +125,7 @@ def show_profile():
         # print(all_journals)
         
 
-    return render_template("profile.html", user=user, all_journals=all_journals)
+    return render_template("profile.html", user=user, journals=journals, travel_journals=travel_journals)
 
 
 
@@ -166,19 +166,14 @@ def create_new_travel_journal():
     return jsonify({'content': content})    
 
 
+# if the user update pictures to their travel_journal
+    # my_file = request.files['my-file']
+    # if my_file: 
+    #     img_url = upload_to_cloudinary(my_file)
+    #     image = crud.create_image(travel_journal.travel_journal_id, img_url)
 
-
-
-# @app.route("/travel_journal", methods=['POST'])
-# def show_travel_journals():
-#     """View all user travel journals."""
-
-
-#     travel_journal = crud.get_travel_journals()
-
-#     return render_template("all_travel_journals.html", travel_journal=travel_journal)
-
-
+    # db.session.add(image)
+    # db.session.commit()
 
 
 # @app.route("/photo", methods=['POST'])

@@ -21,28 +21,19 @@
   </form>
 </div>
 <h2>My Journals</h2>
-{% if all_journals %}
+
   <ul>
-    {% for journal in all_journals %}
-    {% if "address" in journal %}
-    <li><a href="/travel_journal/{{journal.travel_journal_id}}"> {{journal.content}} {{journal.date_time}} {{journal.address}}</a>
-    </li>
-    {% else %}
+    {% for journal in journals %}
     <li><a href="/journal/{{journal.journal_id}}"> {{journal.content}} {{journal.date_time}}</a>
     </li>
-    {% endif %}
-    
     {% endfor %}
+    {% for travel_journal in travel_journals %}
+  
+  <li><a href="/travel_journal/{{travel_journal.travel_journal_id}}"> {{travel_journal.content}} {{travel_journal.date_time}} {{travel_journal.address}}</a>
+  </li>
+  {% endfor %}
   </ul>
-{% endif %}
-<!-- <div>
-  <br>
-  <h2>Create New Travel Journal</h2>
-  <form action="/new_travel_journal" method="POST" class="save_travel_journal">
-    <input type="text" name="new_travel_journal" id="save_content">
-    <button class="btn btn-outline-secondary" type="submit"> Create </button>
-  </form>
-</div> -->
+
   
 <script src="/static/js/save_journal.js"></script>
 <script src="/static/js/save_travel_journal.js"></script>
