@@ -5,7 +5,8 @@ for(const form of forms)
 
     const formAnswer = {
         content: form.querySelector('#save_content').value,
-        // save_date_time: form.querySelector('#save_date_time').value,
+        // date_time: form.querySelector('#save_date_time').value,
+        address: form.querySelector('#save_address').value,
     };
  
     fetch('/save_travel_journal', {

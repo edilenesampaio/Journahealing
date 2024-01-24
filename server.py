@@ -159,7 +159,7 @@ def create_new_travel_journal():
     content = request.json.get('content')
     user = crud.get_user_by_email(session["current_user"])
     created_at = datetime.now()
-    travel_journal = crud.create_new_travel_journal(content, created_at, user)
+    travel_journal = crud.create_new_travel_journal(content, created_at, user, address)
     db.session.add(travel_journal)
     db.session.commit()
     print(travel_journal)
