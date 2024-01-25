@@ -4,7 +4,7 @@ for(const form of forms)
     evt.preventDefault(); 
 
     const formAnswer = {
-        content: form.querySelector('#save_content').value,
+        content: form.querySelector('#journal_content').value,
         // save_date_time: form.querySelector('#save_date_time').value,
     };
  

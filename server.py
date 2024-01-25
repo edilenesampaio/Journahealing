@@ -143,12 +143,15 @@ def create_new_journal():
     return jsonify({'content': content})    
 
 
-#get information from get form
-#create crud function , create_new_journal
-#maybe flash a message "new journal"
-#make page refresh, redirect to profile
+# @app.route("/journal", methods=['POST'])
+# def show_travel_journals():
+#     """View all user travel journals."""
 
-    # request.form.get
+
+#     journal = crud.get_journals()
+
+#     return render_template("all_journals.html", journal=journal)
+
 
 
 
@@ -156,38 +159,35 @@ def create_new_journal():
 def create_new_travel_journal():
     """Create a new journal."""
 
-    content = request.json.get('content')
+    content = request.form.get('content')
+    address = request.form.get('address')
     user = crud.get_user_by_email(session["current_user"])
     created_at = datetime.now()
-    travel_journal = crud.create_new_travel_journal(content, created_at, user, address)
+    travel_journal = crud.create_travel_journal(content, created_at, address, user)
     db.session.add(travel_journal)
     db.session.commit()
     print(travel_journal)
+
+    image = request.files.get('image')
+    if image: 
+        result = cloudinary.uploader.upload(image,
+                                             api_key=CLOUDINARY_KEY,
+                                            api_secret=CLOUDINARY_SECRET,
+                                            cloud_name=CLOUD_NAME)
+        img_url = result['secure_url']
+        print(img_url)
+        image = crud.create_image(travel_journal.travel_journal_id, img_url, created_at, user)
+
+        db.session.add(image)
+        db.session.commit()
+
+
     return jsonify({'content': content})    
 
 
+
 # if the user update pictures to their travel_journal
-    # my_file = request.files['my-file']
-    # if my_file: 
-    #     img_url = upload_to_cloudinary(my_file)
-    #     image = crud.create_image(travel_journal.travel_journal_id, img_url)
-
-    # db.session.add(image)
-    # db.session.commit()
-
-
-# @app.route("/photo", methods=['POST'])
-# def add_photo():
-
-#     my_file = request.files['my-file']
-
-#     result = cloudinary.uploader.upload(my_file,
-#                                         api_key=CLOUDINARY_KEY,
-#                                         api_secret=CLOUDINARY_SECRET,
-#                                         cloud_name=CLOUD_NAME)
-                                 
-#     img_url = result['secure_url']
-
+    
 
 
 if __name__ == "__main__":

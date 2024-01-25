@@ -60,12 +60,13 @@ def get_journal_by_id(journal_id):
     return Journal.query.get(journal_id)
 
 
-def create_travel_journal(content, data_time, address):
+def create_travel_journal(content, data_time, address, user):
 
     travel_journal = Travel_Journal(
         content=content, 
-        data_time=data_time, 
+        date_time=data_time, 
         address=address,
+        user=user,
     )
 
     return travel_journal
@@ -86,9 +87,11 @@ def get_travel_journal_by_id(journal_id):
     
     return Travel_Journal.query.get(journal_id)
 
+# def add_address(travel_journal_id, address)
 
-def create_image(travel_journal_id, image_link):
-    image = Images(travel_journal_id=travel_journal_id, image_link=image_link)
+
+def create_image(travel_journals_id, image_link, date_time, user):
+    image = Photo(travel_journals_id=travel_journals_id, image=image_link, date_time=date_time, user=user)
     
     return image 
 

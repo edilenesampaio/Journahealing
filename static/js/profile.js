@@ -21,3 +21,4 @@ form.addEventListener('submit', (evt) => {
         journal_h2.innerHTML = responseJSON.journal;
     })
 })
+
