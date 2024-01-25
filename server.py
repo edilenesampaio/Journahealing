@@ -140,7 +140,7 @@ def create_new_journal():
     db.session.add(journal)
     db.session.commit()
     print(journal)
-    return jsonify({'content': content})    
+    return jsonify({'content': content, 'journal_id': journal.journal.id, 'created_at': created_at})    
 
 
 # @app.route("/journal", methods=['POST'])

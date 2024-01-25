@@ -55,11 +55,3 @@ for user in users:
 
 model.db.session.add_all(travel_journal)
 model.db.session.commit()
-
-
-# for journal in journals:
-#     new_journal = choice([])
-
-# img_url = result['secure_url']
-
-# model.db.session.commit()

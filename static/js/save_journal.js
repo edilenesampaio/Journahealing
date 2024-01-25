@@ -18,9 +18,10 @@ for(const form of forms)
 
     .then((response) => response.json())
     .then((responseJSON) => {
-        form.insertAdjacentHTML(
-        alert('Journal Successfully Saved!'),
-        window.location.href = '/profile')
+        alert('Journal Successfully Saved!');
+        document.querySelector('#journal_list').insertAdjacentHTML('beforeend', `<li>
+        <a href="/journal/${responseJSON.journal_id}"> ${responseJSON.content} ${responseJSON.created_at}</a>
+         </li>`)
     })
     })
 

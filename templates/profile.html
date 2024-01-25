@@ -24,11 +24,13 @@
 </div>
 <h2>My Journals</h2>
 
-  <ul>
+  <ul id="journal_list">
     {% for journal in journals %}
     <li><a href="/journal/{{journal.journal_id}}"> {{journal.content}} {{journal.date_time}}</a>
     </li>
     {% endfor %}
+    </ul>
+    <ul id="travel_journal_list">
     {% for travel_journal in travel_journals %}
   
   <li><a href="/travel_journal/{{travel_journal.travel_journal_id}}"> {{travel_journal.content}} {{travel_journal.date_time}} {{travel_journal.address}}</a>
