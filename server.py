@@ -88,14 +88,14 @@ def user_login():
     return redirect("/")
 
 
-# @app.route("/logout", methods=['POST'])
-# def user_logout():
-#     """Log user out of the session."""
+@app.route("/logout", methods=['POST'])
+def user_logout():
+    """Log user out of the session."""
     
-#     if session.get('current_user'):
-#         del session['current_user']
-#     flash('Logged out!')
-#     return redirect("/")
+    if session.get('current_user'):
+        del session['current_user']
+    flash('Logged out!')
+    return redirect("/")
 
 
 
@@ -121,9 +121,7 @@ def show_profile():
         if travel_journals is None:
             travel_journals = []
 
-        # all_journals = journals + travel_journals
-        # print(all_journals)
-        
+      
 
     return render_template("profile.html", user=user, journals=journals, travel_journals=travel_journals)
 
@@ -143,21 +141,33 @@ def create_new_journal():
     return jsonify({'content': content, 'journal_id': journal.journal.id, 'created_at': created_at})    
 
 
-# @app.route("/journal", methods=['POST'])
-# def show_travel_journals():
-#     """View all user travel journals."""
+@app.route("/journal/<journal_id>")
+def show_journals(journal_id):
+    """View all user journals."""
 
 
-#     journal = crud.get_journals()
+    journal = crud.get_journal_by_id(journal_id)
 
-#     return render_template("all_journals.html", journal=journal)
+    return render_template("journals_details.html", journal=journal)
 
 
+
+@app.route("/delete_journal", methods=['POST'])
+def delete_journal():
+        """Delete a journal."""
+
+        delete_journal = request.form.get('journal_id')
+        print(delete_journal)
+        print(type(delete_journal))
+        del_journal = crud.get_journal_by_id(delete_journal)
+        db.session.delete(del_journal)
+        db.session.commit()
+        return redirect('/profile')
 
 
 @app.route("/save_travel_journal", methods=['POST'])
 def create_new_travel_journal():
-    """Create a new journal."""
+    """Create a new travel journal."""
 
     content = request.form.get('content')
     address = request.form.get('address')
@@ -185,9 +195,28 @@ def create_new_travel_journal():
     return jsonify({'content': content})    
 
 
+@app.route("/travel_journal/<travel_journal_id>")
+def show_travel_journals(travel_journal_id):
+    """View all user travel journals."""
+
+
+    travel_journal = crud.get_travel_journal_by_id(travel_journal_id)
+
+    return render_template("travel_journals_details.html", travel_journal=travel_journal)
 
 # if the user update pictures to their travel_journal
     
+
+@app.route("/delete_travel_journal", methods=['POST'])
+def delete_travel_journal():
+
+        delete_travel_journal = request.form.get('travel_journal_id')
+        print(delete_travel_journal)
+        print(type(delete_travel_journal))
+        del_travel_journal = crud.get_travel_journal_by_id(delete_travel_journal)
+        db.session.delete(del_travel_journal)
+        db.session.commit()
+        return redirect('/profile')
 
 
 if __name__ == "__main__":

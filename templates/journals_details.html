@@ -2,16 +2,16 @@
 {% block title %} Details {% endblock %}
 
 {% block body %}
-    <h1>All Journals</h1>
-
+    <h1>Journals Content</h1>
+<p>{{journal.content}}</p>
     <ul> 
-    {% for journal in journals %}
         <li> 
-            <a href="/journals/{{journal.journal_id}}">
-                {{journal.content}}
-            </a>
         </li>
-
-    {% endfor %}
+        <div>
+            <form action="/delete_journal" method="POST" class="delete_journal">
+            <input type="hidden" name="journal_id" id="journal_id" value="{{journal.journal_id}}">
+            <button class="btn btn-outline-secondary" type="submit"> Delete </button>
+          </form>
+        </div>
     </ul>
 {% endblock %}

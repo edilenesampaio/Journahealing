@@ -6,6 +6,11 @@
 
 <div>
   <h1>Hello, {{user.user_name}}!</h1>
+  <!-- <form action="/logout" method="POST" class="logout">
+  <p button type="submit" class="btn btn-outline-secondary"></button>
+  </p>
+  </form> -->
+
   <h2>Create a Journal</h2>
   <form action="/new_journal" method="POST" class="save_journal">
     <input type="text" name="new_journal" id="journal_content">
@@ -28,6 +33,10 @@
     {% for journal in journals %}
     <li><a href="/journal/{{journal.journal_id}}"> {{journal.content}} {{journal.date_time}}</a>
     </li>
+    <form action="/delete_journal" method="POST" class="delete_journal">
+    <input type="hidden" name="journal_id" id="journal_id" value="{{journal.journal_id}}">
+    <button class="btn btn-outline-secondary" type="submit"> Delete </button>
+    </form>
     {% endfor %}
     </ul>
     <ul id="travel_journal_list">

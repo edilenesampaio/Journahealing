@@ -2,21 +2,24 @@
 {% block title %}All Travel Journals{% endblock %}
 
 {% block body %}
-    <h1>All Travel Journals</h1>
+    <h1>Travel Journals Content</h1>
 
     <ul> 
-    {% for travel_journal in journals %}
-        <li> 
-            <a href="/journals/{{travel_journal.travel_journal_id}}">
-                {{travel_journal.content}}
-            </a>
-        </li>
+    <li> 
+    <a href="/travel.journals/{{travel_journal.travel_journal_id}}"> {{travel_journal.content}}
+    </a> 
+    </li>
         <h2>Insert Photos</h2>
         <form action="/photo" method="POST" enctype="multipart/form-data">
             <input type="file" name="my-file">
             <input type="hidden" id="journal_to_add_to" value="{{travel_journal.travel_journal_id}}">
             <input type="submit">
         </form>
-    {% endfor %}
+        <div>
+            <form action="/delete_travel_journal" method="POST" class="delete_travel_journal">
+            <input type="hidden" name="travel_journal_id" id="travel_journal_id" value="{{travel_journal.travel_journal_id}}">
+            <button class="btn btn-outline-secondary" type="submit"> Delete </button>
+          </form>
+        </div>
     </ul>
 {% endblock %}
