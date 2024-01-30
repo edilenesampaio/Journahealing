@@ -1,12 +1,12 @@
 body {
- background-color:palevioletred; 
+ background-color:hwb(320 93% 3%); 
 }
 
 h1,
 h2,
 h3{
  font-family:'Times New Roman', Times, serif;
- color:grey
+ color:black
 }
 
 .custom-margin{
@@ -20,4 +20,8 @@ h3{
 .carousel-image{
  max-width:80%;
  height:auto;
+}
+
+#logout-button {
+    color: #d917eed8;
 }

@@ -6,7 +6,7 @@
 
 <div>
   <h1>Hello, {{user.user_name}}!</h1>
-
+  <h2>Welcome to your journaling app!</h2>
   <h2>Create a Journal</h2>
   <form action="/new_journal" method="POST" class="save_journal">
     <input type="text" name="new_journal" id="journal_content">
@@ -42,11 +42,11 @@
   </li>
   {% endfor %}
   </ul>
-  <!-- <form action="/logout" method="POST" class="logout">
+  <form action="/logout" method="POST" class="logout">
   <p>
-  <button type="submit" class="btn btn-outline-secondary"{{(Log out)}}></button>
+  <button type="submit" class="btn btn-outline-secondary">Log out</button>
   </p>
-  </form> -->
+  </form>
   
 <script src="/static/js/save_journal.js"></script>
 <script src="/static/js/save_travel_journal.js"></script>
