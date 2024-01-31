@@ -9,12 +9,14 @@
     <a href="/travel.journals/{{travel_journal.travel_journal_id}}"> {{travel_journal.content}}
     </a> 
     </li>
-        <h2>Insert Photos</h2>
-        <form action="/photo" method="POST" enctype="multipart/form-data">
+    {%for photo in travel_journal.photos%}
+    <img src="{{photo.image}}">
+    {% endfor %}
+        <!-- <form action="/photo" method="POST" enctype="multipart/form-data">
             <input type="file" name="my-file">
             <input type="hidden" id="journal_to_add_to" value="{{travel_journal.travel_journal_id}}">
             <input type="submit">
-        </form>
+        </form> -->
         <div>
             <form action="/delete_travel_journal" method="POST" class="delete_travel_journal">
             <input type="hidden" name="travel_journal_id" id="travel_journal_id" value="{{travel_journal.travel_journal_id}}">

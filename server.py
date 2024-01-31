@@ -138,7 +138,7 @@ def create_new_journal():
     db.session.add(journal)
     db.session.commit()
     print(journal)
-    return jsonify({'content': content, 'journal_id': journal.journal.id, 'created_at': created_at})    
+    return jsonify({'content': content, 'journal_id': journal.journal_id, 'created_at': created_at})    
 
 
 @app.route("/journal/<journal_id>")
@@ -192,7 +192,7 @@ def create_new_travel_journal():
         db.session.commit()
 
 
-    return jsonify({'content': content})    
+    return jsonify({'travel_journal_id': travel_journal.travel_journal_id, 'content': content, 'created_at': created_at, 'address': address})    
 
 
 @app.route("/travel_journal/<travel_journal_id>")

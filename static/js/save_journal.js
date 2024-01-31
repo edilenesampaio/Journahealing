@@ -22,6 +22,7 @@ for(const form of forms)
         document.querySelector('#journal_list').insertAdjacentHTML('beforeend', `<li>
         <a href="/journal/${responseJSON.journal_id}"> ${responseJSON.content} ${responseJSON.created_at}</a>
          </li>`)
+        form.querySelector('#journal_content').value=''
     })
     })
 

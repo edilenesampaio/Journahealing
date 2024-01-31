@@ -1,14 +1,23 @@
 body {
- background-color:hwb(320 93% 3%); 
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position:relative;
+    background-color:hwb(75 93% 3%); 
+    background-image: url("/static/images/journaling.jpg");
 }
 
-h1,
-h2,
-h3{
- font-family:'Times New Roman', Times, serif;
- color:black
+h1, h3{
+ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
+h2, label, svg, p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:rgb(182, 182, 117)
+}
+
+a, h4 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #7C6C78;
+}
 .custom-margin{
     margin-top:20px;
 }
@@ -17,11 +26,24 @@ h3{
     margin-top:50px;
 }
 
-.carousel-image{
- max-width:80%;
- height:auto;
+.border-journal{
+    border: 1px solid #e380f5;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 5px;
+    width: 35%;
 }
 
-#logout-button {
-    color: #d917eed8;
+.border-travel_journal{
+    border: 1px solid #e380f5;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 5px;
+    width: 35%;
 }
+
+.image{
+    height: 500px;
+    width: 400px;
+}
+

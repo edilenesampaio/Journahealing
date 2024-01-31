@@ -27,8 +27,10 @@ formData.append("image", image.files[0]);
 
     .then((response) => response.json())
     .then((responseJSON) => {
-        form.insertAdjacentHTML(
         alert('Travel Journal Successfully Saved!'),
-        window.location.href = '/profile')
+        document.querySelector('#travel_journal_list').insertAdjacentHTML('beforeend', `<li>
+        <a href="/travel_journal/${responseJSON.travel_journal_id}"> ${responseJSON.content} ${responseJSON.created_at} ${responseJSON.address}</a>
+         </li>`)
+        form.querySelector('#travel_journal_content').value=''
     })
     })
