@@ -165,6 +165,25 @@ def delete_journal():
         return redirect('/profile')
 
 
+
+@app.route("/edit_journal", methods=['POST'])
+def edit_journal():
+        """Edit a journal."""
+
+        edit_journal = request.form.get('journal_id')
+        edit_content = request.form.get('journal_content')
+        print(edit_journal)
+        print(type(edit_journal))
+        print(edit_content)
+        print(type(edit_content))
+        edi_journal = crud.get_journal_by_id(edit_journal)
+        print(edi_journal)
+        edi_journal.content = edit_content
+        db.session.commit()
+        return redirect('/profile')
+
+
+
 @app.route("/save_travel_journal", methods=['POST'])
 def create_new_travel_journal():
     """Create a new travel journal."""
@@ -215,6 +234,24 @@ def delete_travel_journal():
         print(type(delete_travel_journal))
         del_travel_journal = crud.get_travel_journal_by_id(delete_travel_journal)
         db.session.delete(del_travel_journal)
+        db.session.commit()
+        return redirect('/profile')
+
+
+
+@app.route("/edit_travel_journal", methods=['POST'])
+def edit_travel_journal():
+        """Edit a travel journal."""
+
+        edit_travel_journal = request.form.get('travel_journal_id')
+        edit_content = request.form.get('travel_journal_content')
+        print(edit_travel_journal)
+        print(type(edit_travel_journal))
+        print(edit_content)
+        print(type(edit_content))
+        edi_travel_journal = crud.get_travel_journal_by_id(edit_travel_journal)
+        print(edi_travel_journal)
+        edi_travel_journal.content = edit_content
         db.session.commit()
         return redirect('/profile')
 

@@ -7,28 +7,28 @@
   
   <h2>Welcome to your journaling app!</h2>
   
-  <div class=“border-journal”></div>
+  <div class="border-type"></div>
   <h2><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal" viewBox="0 0 16 16">
     <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
     <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
-  </svg> Create a Journal</h2>
+  </svg> Write a Journal</h2>
   <form action="/new_journal" method="POST" class="save_journal">
     <input type="text" name="new_journal" id="journal_content">
-    <button class="btn btn-outline-secondary" type="submit"> Create </button>
+    <button class="btn btn-outline-secondary" type="submit"> Save </button>
   </form>
 </div>
 <div>
   <br>
-  <h2><div class=“border-travel_journal”></div>
+  <h2><div class="border-type"></div>
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal" viewBox="0 0 16 16">
       <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
       <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
-    </svg> Create a Travel Journal</h2>
+    </svg> Write a Travel Journal</h2>
   <form action="/new_travel_journal" method="POST" class="save_travel_journal">
     <input type="text" name="new_travel_journal" id="travel_journal_content">
     <input type="text" name="address" id="save_address">
     <input type="file" name="my-file" id="image">
-    <button class="btn btn-outline-secondary" type="submit"> Create </button>
+    <button class="btn btn-outline-secondary" type="submit"> Save </button>
   </form>
 </div>
 <div class="border-type"></div>
@@ -62,4 +62,5 @@
   
 <script src="/static/js/save_journal.js"></script>
 <script src="/static/js/save_travel_journal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 {% endblock %}

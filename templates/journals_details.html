@@ -13,5 +13,12 @@
             <button class="btn btn-outline-secondary" type="submit"> Delete </button>
           </form>
         </div>
+        <div>
+            <form action="/edit_journal" method="POST" class="edit_journal">
+            <input type="hidden" name="journal_id" id="journal_id" value="{{journal.journal_id}}">
+            <input type="text" name="journal_content" id="journal_content" value="{{journal.content}}">
+            <button class="btn btn-outline-secondary" type="submit"> Edit </button>
+          </form>
+        </div>
     </ul>
 {% endblock %}
