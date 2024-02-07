@@ -2,23 +2,31 @@
 {% block title %} Details {% endblock %}
 
 {% block body %}
-    <h1>Journals Content</h1>
-<p>{{journal.content}}</p>
-    <ul> 
-        <li> 
-        </li>
-        <div>
-            <form action="/delete_journal" method="POST" class="delete_journal">
-            <input type="hidden" name="journal_id" id="journal_id" value="{{journal.journal_id}}">
-            <button class="btn btn-outline-secondary" type="submit"> Delete </button>
-          </form>
-        </div>
-        <div>
-            <form action="/edit_journal" method="POST" class="edit_journal">
-            <input type="hidden" name="journal_id" id="journal_id" value="{{journal.journal_id}}">
-            <input type="text" name="journal_content" id="journal_content" value="{{journal.content}}">
-            <button class="btn btn-outline-secondary" type="submit"> Edit </button>
-          </form>
-        </div>
-    </ul>
+<h1>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal"
+    viewBox="0 0 16 16">
+    <path
+      d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2" />
+    <path
+      d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
+  </svg>Journals Content
+</h1>
+<li>
+  <p>{{journal.content}}</p>
+  <ul>
+</li>
+<div>
+  <form action="/delete_journal" method="POST" class="delete_journal">
+    <input type="hidden" name="journal_id" id="journal_id" value="{{journal.journal_id}}">
+    <button class="btn btn-outline-secondary" type="submit"> Delete </button>
+  </form>
+</div>
+<div>
+  <form action="/edit_journal" method="POST" class="edit_journal">
+    <input type="hidden" name="journal_id" id="journal_id" value="{{journal.journal_id}}">
+    <input type="text" name="journal_content" id="journal_content" value="{{journal.content}}">
+    <button class="btn btn-outline-secondary" type="submit"> Edit </button>
+  </form>
+</div>
+</ul>
 {% endblock %}
