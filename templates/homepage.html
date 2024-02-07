@@ -2,49 +2,44 @@
 {% block title %}Journahealing{% endblock %}
 
 {% block body %}
-<div class="col-6 offset-4">
-  <img id="journaling" class="img-fluid float-end" src="/static/images/journaling.jpg">
+
+<div class="background-box"></div>
+
+<h1>Journahealing</h1>
+<div class="row">
+  <div class="border-type col-6">
+    <h4>Create an Account</h4>
+    <form action="/users" method="POST">
+      <p>
+        Username <input type="text" name="user_name">
+      </p>
+      <p>
+        Email <input type="text" name="email">
+      </p>
+      <p>
+        Password <input type="password" name="password">
+      </p>
+      <p>
+        <input class="btn btn-outline-secondary" type="submit">
+      </p>
+    </form>
   </div>
-</br>
-  <div class="background-box"></div>
-  
-  <h2>Journahealing</h2>
-  <div class="border-type"></div>
-  <h2>Create an Account</h2>
-  <form action="/users" method="POST">
-    <p>
-      Username <input type="text" name="user_name">
-    </p>
-  
-    <p>
-      Email <input type="text" name="email">
-    </p>
- 
-    <p>
-      Password <input type="password" name="password">
-    </p>
-
-    <p>
-      <input class="btn btn-outline-secondary" type="submit">
-    </p>
-  </form>
-  <h3>Log In</h3>
-  <form action="/login" method="POST">
-    <p>
-      Email <input type="text" name="email">
-    </p>
-
-    <p>
-      Password <input type="password" name="password">
-    </p>
-
-    <p>
-      <input class="btn btn-outline-secondary" type="submit">
-    </p>
-  </form>
+  <div class="border-type col-6">
+    <h4>Log In</h4>
+    <form action="/login" method="POST">
+      <p>
+        Email <input type="text" name="email">
+      </p>
+      <p>
+        Password <input type="password" name="password">
+      </p>
+      <p>
+        <input class="btn btn-outline-secondary" type="submit">
+      </p>
+    </form>
   </div>
-  
+  <div class="col-6 offset-">
+    <img id="journaling" class="img-fluid float-end" src="/static/images/journaling.jpg" style="height:200px;width:200px;padding:20px;">
+  </div>
 
-
-  
-{% endblock %}
+  {% endblock %}

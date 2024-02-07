@@ -2,33 +2,45 @@
 {% block title %}All Travel Journals{% endblock %}
 
 {% block body %}
-    <h1>Travel Journals Content</h1>
-
-    <ul> 
-    <li> 
+<h1>
+  <div class="row">
+    <div class="border-type col-6" style="height:200px;font-size:14pt;background-color: beige;">
+      <h2><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal"
+          viewBox="0 0 16 16">
+          <path
+            d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2" />
+          <path
+            d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
+        </svg>Travel Journals Content
+</h1>
+<ul>
+  <li>
     <a href="/travel.journals/{{travel_journal.travel_journal_id}}"> {{travel_journal.content}}
-    </a> 
-    </li>
-    {%for photo in travel_journal.photos%}
-    <img src="{{photo.image}}">
-    {% endfor %}
-        <!-- <form action="/photo" method="POST" enctype="multipart/form-data">
+    </a>
+  </li>
+  {%for photo in travel_journal.photos%}
+  <img src="{{photo.image}}" style="height:200px;font-size:14pt;">
+  {% endfor %}
+  <!-- <form action="/photo" method="POST" enctype="multipart/form-data">
             <input type="file" name="my-file">
             <input type="hidden" id="journal_to_add_to" value="{{travel_journal.travel_journal_id}}">
             <input type="submit">
         </form> -->
-        <div>
-            <form action="/delete_travel_journal" method="POST" class="delete_travel_journal">
-            <input type="hidden" name="travel_journal_id" id="travel_journal_id" value="{{travel_journal.travel_journal_id}}">
-            <button class="btn btn-outline-secondary" type="submit"> Delete </button>
-          </form>
-        </div>
-        <div>
-            <form action="/edit_travel_journal" method="POST" class="edit_travel_journal">
-            <input type="hidden" name="travel_journal_id" id="travel_journal_id" value="{{travel_journal.travel_journal_id}}">
-            <input type="text" name="travel_journal_content" id="travel_journal_content" value="{{travel_journal.content}}">
-            <button class="btn btn-outline-secondary" type="submit"> Edit </button>
-          </form>
-        </div>
-    </ul>
+  <div class="border-type col-6">
+    <form action="/delete_travel_journal" method="POST" class="delete_travel_journal">
+      <input type="hidden" name="travel_journal_id" id="travel_journal_id" value="{{travel_journal.travel_journal_id}}">
+      <button class="btn btn-outline-secondary" type="submit"> Delete </button>
+    </form>
+  </div>
+
+  <div class="border-type">
+    <form action="/edit_travel_journal" method="POST" class="edit_travel_journal">
+      <input type="hidden" name="travel_journal_id" id="travel_journal_id" value="{{travel_journal.travel_journal_id}}">
+      <input type="text" name="travel_journal_content" id="travel_journal_content" value="{{travel_journal.content}}" 
+      style="height:100px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color:#cb7379;">
+      <button class="btn btn-outline-secondary" type="submit"> Edit </button>
+    </form>
+  </div>
+</ul>
 {% endblock %}
