@@ -8,58 +8,68 @@
 <h4>Welcome to your journaling app!</h4>
 <div class="row">
   <div class="border-type col-6">
-    <h2><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal"
+    <h2>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal"
         viewBox="0 0 16 16">
         <path
           d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2" />
         <path
           d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
-      </svg> Write a Journal</h2>
+      </svg> Write a Journal
+    </h2>
     <form action="/new_journal" method="POST" class="save_journal">
       <input type="text" name="new_journal" id="journal_content"
-        style="height:500px;width:200px;font-size:16pt;background-color:rgb(250, 244, 237);">
+        style="height:400px;width:90%;font-size:16pt;background-color:rgb(250, 244, 237);">
       <button class="btn btn-outline-secondary" type="submit"> Save </button>
     </form>
   </div>
+
   <div class="border-type col-6">
     <div class="travel-journals">
-      <h2><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal"
+      <h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journal"
           viewBox="0 0 16 16">
           <path
             d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2" />
           <path
             d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
-        </svg> Write a Travel Journal</h2>
+        </svg> Write a Travel Journal
+      </h2>
       <form action="/new_travel_journal" method="POST" class="save_travel_journal">
-        <input type="text" name="new_travel_journal" id="travel_journal_content" style="height:400px;font-size:16pt;background-color:rgb(250, 244, 237);"        color:#cb7379;position:relative;">
+        <input type="text" name="new_travel_journal" id="travel_journal_content" style="height:400px;width:90%;font-size:16pt;background-color:rgb(250, 244, 237);">
         <input type="text" name="address" id="save_address">
         <input type="file" name="my-file" id="image">
         <button class="btn btn-outline-secondary" type="submit"> Save </button>
       </form>
     </div>
   </div>
+
   <div class="my-journals">
-    <h2><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-journals"
+    <h2>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-journals"
         viewBox="0 0 16 16">
         <path
           d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
         <path
           d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
-      </svg> My Journals</h2>
+      </svg> My Journals
+    </h2>
     <ul id="journal_list" style="font-size:12pt;font-family:'Gill Sans','Gill Sans MT',Calibri,'Trebuchet MS',sans-serif;color:#cb7379;">
       {% for journal in journals %}
-      <li><a href="/journal/{{journal.journal_id}}"> {{journal.content}} {{journal.date_time}}</a>
+      <li>
+        <a href="/journal/{{journal.journal_id}}"> {{journal.content}} {{journal.date_time}}</a>
       </li>
       <!-- <form action="/delete_journal" method="POST" class="delete_journal">
     <input type="hidden" name="journal_id" id="journal_id" value="{{journal.journal_id}}">
     <button class="btn btn-outline-secondary" type="submit"> Delete </button> -->
-      </form>
+    
       {% endfor %}
     </ul>
     <ul id="travel_journal_list">
       {% for travel_journal in travel_journals %}
 
-      <li><a href="/travel_journal/{{travel_journal.travel_journal_id}}"> {{travel_journal.content}}
+      <li>
+        <a href="/travel_journal/{{travel_journal.travel_journal_id}}"> {{travel_journal.content}}
           {{travel_journal.date_time}} {{travel_journal.address}}</a>
       </li>
       {% endfor %}
@@ -69,7 +79,8 @@
         <button type="submit" class="btn btn-outline-secondary">Log out</button>
       </p>
     </form>
-
+  </div>
+</div>
     <script src="/static/js/save_journal.js"></script>
     <script src="/static/js/save_travel_journal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

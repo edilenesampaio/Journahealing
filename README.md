@@ -6,24 +6,20 @@ or about traveling. The idea of making Journahealing came from a personal reason
 
 # About me
 
-Edilene is graduated with a Business Administration degree. She's originally from Brazil, and moved to the US about six years ago to study and learn English. Prior to joining Hackbright Academy, she worked as an Administrative Assistante for a real estate company in Chicago, where she helped tenants and landlords navegate their relationship. Combining her passion for technology and writing, she got inspired to create Journahealing, a digital version of a journaling space, where its users can write about anything.
+Edilene is graduated with a Business Administration degree. She's originally from Brazil, and moved to the US about six years ago to study and learn English. Prior to joining Hackbright Academy, she worked as an Administrative Assistante for a real estate company in Chicago, where she helped tenants and landlords navigate their relationship. Combining her passion for technology and writing, she got inspired to create Journahealing, a digital version of a journaling space, where its users can write about anything.
 
 # Tech stack
 
-certifi==2023.11.17
-click==8.0.1
-cloudinary==1.38.0
-Flask==2.0.1
-Flask-SQLAlchemy==2.5.1
-greenlet==3.0.3
-itsdangerous==2.0.1
-Jinja2==3.0.1
-MarkupSafe==2.0.1
-psycopg2-binary==2.9.3
-six==1.16.0
-SQLAlchemy==1.4.18
-urllib3==2.1.0
-Werkzeug==2.0.1
+* Python
+* Flask
+* HTML
+* JavaScript
+* Jinja2
+* PostgreSQL
+* SQLAlchemy
+* CSS
+* Bootstrap
+* Cloudinary API
 
 # Features
 
