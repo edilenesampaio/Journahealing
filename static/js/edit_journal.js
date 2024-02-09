@@ -16,7 +16,7 @@ editJournalButton.addEventListener('click', (evt) => {
 
     .then((response) => response.json())
     .then((responseJSON) => {
-        alert('Journal edited')
+        alert('Journal edited');
         window.location.href = `/journal/${responseJSON.journal_id}`
     })
 });

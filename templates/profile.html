@@ -18,8 +18,8 @@
       </svg> Write a Journal
     </h2>
     <form action="/new_journal" method="POST" class="save_journal">
-      <input type="text" name="new_journal" id="journal_content"
-        style="height:400px;width:90%;font-size:16pt;background-color:rgb(250, 244, 237);">
+      <textarea col="20" wrap="hard" name="new_journal" id="journal_content"
+        style="height:400px;width:90%;font-size:16pt;background-color:rgb(250, 244, 237);"></textarea>
       <button class="btn btn-outline-secondary" type="submit"> Save </button>
     </form>
   </div>
@@ -36,7 +36,7 @@
         </svg> Write a Travel Journal
       </h2>
       <form action="/new_travel_journal" method="POST" class="save_travel_journal">
-        <input type="text" name="new_travel_journal" id="travel_journal_content" style="height:400px;width:90%;font-size:16pt;background-color:rgb(250, 244, 237);">
+        <textarea col="20" wrap="hard" name="new_travel_journal" id="travel_journal_content" style="height:400px;width:90%;font-size:16pt;background-color:rgb(250, 244, 237);"></textarea>
         <input type="text" name="address" id="save_address">
         <input type="file" name="my-file" id="image">
         <button class="btn btn-outline-secondary" type="submit"> Save </button>
