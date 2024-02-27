@@ -18,7 +18,7 @@ model.db.create_all()
 
 
 users = []
-names = ["June", "Francisco", "Frederico", "Nelly", "Maria", "Michelle", "David", "Gus", "Izzy", "Owen", "Chris"]
+names = ["June", "Francisco", "Frederico", "Maria", "Michelle", "David", "Gus", "Izzy", "Owen", "Chris", "Lene"]
 
 for n in range(10):
     email = f'{names[n]}@test.com'

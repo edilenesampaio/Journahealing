@@ -8,6 +8,8 @@ or about traveling. The idea of making Journahealing came from a personal reason
 
 Edilene is graduated with a Business Administration degree. She's originally from Brazil, and moved to the US about six years ago to study and learn English. Prior to joining Hackbright Academy, she worked as an Administrative Assistante for a real estate company in Chicago, where she helped tenants and landlords navigate their relationship. Combining her passion for technology and writing, she got inspired to create Journahealing, a digital version of a journaling space, where its users can write about anything.
 
+
+
 # Tech stack
 
 * Python
